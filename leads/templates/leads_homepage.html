@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<style>
+  .leads{
+    padding:10px;
+    background-color:#f6f6f6;
+    color: black;
+    background-image: linear-gradient(grey, white);
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-8"><h2>This is Leads Homepage</h2></div>
+  <div class="col-md-4 text-primary text-end">
+      <!-- <a class="p-5" href="{% url 'create_lead' %}">Create Lead</a> -->
+      <!-- <button type="button" class="btn btn-success m-1" href="{% url 'create_lead' %}">Create Lead</button> -->
+      <a href="{% url 'create_lead' %}" class="btn btn-success btn-lg active m-1" role="button" aria-pressed="true">Create Lead</a>
+  </div>
+  <div>
+
+  </div>
+</div>
+<div class="row ">
+  <div class="col-md-6">
+    <h2 class="p-3 mb-2 bg-info text-white">You can create New leads by cliking on top right corner button.</h2>
+    <h2 class="p-3 mb-2 bg-white text-dark">You can watch your existing leads in the right side.</h2>
+    
+
+  </div>
+  <div class="col-md-6 ">
+  <!-- <ul>
+  
+    {% for lead in leads %}
+      <li>
+        <a href="{% url 'update_lead' lead.pk %}"><div class="leads">{{lead}}</div></a>
+      </li>
+    
+    {% endfor %}
+  </ul> -->
+  <h2>Your Existing Leads</h2>
+  {% for lead in leads %}
+      <div><a href="{% url 'update_lead' lead.id %}">{{lead}}</a></div>
+  {% endfor %}
+
+
+</div>
+</div>
+  <script src="js/scripts.js"></script>
+  {% endblock %}
+
